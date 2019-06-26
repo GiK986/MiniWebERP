@@ -1,0 +1,10 @@
+﻿version: 1.0.{build}
+image: Visual Studio 2017
+before_build:
+- cmd: >-
+    dotnet --version
+
+    dotnet restore "ASP.NET Core/MiniWebERP.sln"
+build:
+  project: ASP.NET Core/MiniWebERP.sln
+  verbosity: minimal
