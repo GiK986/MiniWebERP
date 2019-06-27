@@ -4,12 +4,11 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Mvc;
     using MiniWebERP.Data.Common.Repositories;
     using MiniWebERP.Data.Models;
     using MiniWebERP.Services.Mapping;
     using MiniWebERP.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {

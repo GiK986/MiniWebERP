@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using MiniWebERP.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using MiniWebERP.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {

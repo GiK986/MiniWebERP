@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using MiniWebERP.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using MiniWebERP.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

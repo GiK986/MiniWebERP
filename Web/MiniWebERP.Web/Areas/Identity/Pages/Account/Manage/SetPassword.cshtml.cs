@@ -3,11 +3,10 @@
     using System.ComponentModel.DataAnnotations;
     using System.Threading.Tasks;
 
-    using MiniWebERP.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
+    using MiniWebERP.Data.Models;
 
 #pragma warning disable SA1649 // File name should match first type name
     public class SetPasswordModel : PageModel

@@ -2,10 +2,9 @@
 {
     using System.Security.Claims;
 
-    using MiniWebERP.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using MiniWebERP.Data.Models;
 
     public class ApplicationRoleStore : RoleStore<
         ApplicationRole,

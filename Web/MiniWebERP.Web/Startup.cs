@@ -2,17 +2,6 @@
 {
     using System.Reflection;
 
-    using MiniWebERP.Data;
-    using MiniWebERP.Data.Common;
-    using MiniWebERP.Data.Common.Repositories;
-    using MiniWebERP.Data.Models;
-    using MiniWebERP.Data.Repositories;
-    using MiniWebERP.Data.Seeding;
-    using MiniWebERP.Services.Data;
-    using MiniWebERP.Services.Mapping;
-    using MiniWebERP.Services.Messaging;
-    using MiniWebERP.Web.ViewModels;
-
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -24,6 +13,16 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using MiniWebERP.Data;
+    using MiniWebERP.Data.Common;
+    using MiniWebERP.Data.Common.Repositories;
+    using MiniWebERP.Data.Models;
+    using MiniWebERP.Data.Repositories;
+    using MiniWebERP.Data.Seeding;
+    using MiniWebERP.Services.Data;
+    using MiniWebERP.Services.Mapping;
+    using MiniWebERP.Services.Messaging;
+    using MiniWebERP.Web.ViewModels;
 
     public class Startup
     {

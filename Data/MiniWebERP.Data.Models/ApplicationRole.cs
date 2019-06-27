@@ -1,11 +1,9 @@
-﻿// ReSharper disable VirtualMemberCallInConstructor
-namespace MiniWebERP.Data.Models
+﻿namespace MiniWebERP.Data.Models
 {
     using System;
 
-    using MiniWebERP.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using MiniWebERP.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {
