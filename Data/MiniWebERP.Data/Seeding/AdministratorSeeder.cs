@@ -1,10 +1,12 @@
 ﻿namespace MiniWebERP.Data.Seeding
 {
     using System;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using MiniWebERP.Common;
     using MiniWebERP.Data.Models;
@@ -15,14 +17,21 @@
         {
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            var adminUser = await userManager.FindByNameAsync("admin");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
 
-            // TODO: get from json User an password
+            var rootUser = new RootUser();
+            configuration.GetSection("Administrator").Bind(rootUser);
+
+            var adminUser = await userManager.FindByNameAsync(rootUser.UserName);
+
             if (adminUser == null)
             {
-                var admin = new ApplicationUser { UserName = "admin@weberp.com", Email = "admin@weberp.com" };
+                var admin = new ApplicationUser { UserName = rootUser.UserName, Email = rootUser.Email };
 
-                var result = await userManager.CreateAsync(admin, "qwe@123");
+                var result = await userManager.CreateAsync(admin, rootUser.Password);
 
                 if (result.Succeeded)
                 {
