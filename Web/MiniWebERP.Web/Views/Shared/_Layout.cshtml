@@ -1,74 +1,88 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@this.ViewData["Title"] - MiniWebERP</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
 
-    <environment names="Development">
-        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
-        <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
-    </environment>
-    <environment names="Staging,Production">
-        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
-        <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
-    </environment>
+
+    <!-- Bootstrap CSS-->
+    <link href="~/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="~/vendor/font-awesome/css/all.css" asp-append-version="true">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="~/css/fontastic.css" asp-append-version="true">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" asp-append-version="true">
+    <!-- DataTables CSS-->
+    <link rel="stylesheet" href="~/vendor/dataTables/css/datatables.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/vendor/dataTables/Responsive-2.2.2/css/responsive.bootstrap4.css" asp-append-version="true">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="~/css/style.default.premium.css" id="theme-stylesheet" asp-append-version="true">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MiniWebERP</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="page">
+        <!-- Main Navbar-->
+        <partial name="_MainNavbarPartial" />
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <partial name="_SideNavbarPartial" />
+            <div class="content-inner">
+                <!-- Page Header-->
+                <header class="page-header">
+                    <div class="container-fluid">
+                        <h2 class="no-margin-bottom">@this.ViewData["Title"]</h2>
+                    </div>
+                </header>
+                @this.RenderBody()
+                <!-- Page Footer-->
+                <footer class="main-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p> &copy; @DateTime.Now.Year - MiniWebERP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <p>Version 1.0.0</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @this.RenderBody()
-        </main>
-    </div>
-    
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - MiniWebERP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </div>
 
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
 
+    <!-- JavaScript files-->
+    <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+    <script src="~/vendor/jquery.cookie/jquery.cookie.js" asp-append-version="true"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.js" asp-append-version="true"></script>
+    <script src="~/vendor/chart.js/Chart.min.js" asp-append-version="true"></script>
+    <script src="~/js/charts-home.js" asp-append-version="true"></script>
+    <!-- Data Tables-->
+    <script src="~/vendor/dataTables/js/datatables.js"></script>
+    <script src="~/vendor/dataTables/Responsive-2.2.2/js/dataTables.responsive.js"></script>
+    <script src="~/vendor/dataTables/Responsive-2.2.2/js/responsive.bootstrap4.js"></script>
+    <script src="~/js/tables-datatable.js"></script>
+    <!-- Notifications-->
+    <script src="~/vendor/messenger-hubspot/build/js/messenger.min.js" asp-append-version="true"></script>
+    <script src="~/vendor/messenger-hubspot/build/js/messenger-theme-flat.js" asp-append-version="true"></script>
+    <script src="~/js/home-premium.js" asp-append-version="true"></script>
+    <!-- Main File-->
+    <script src="~/js/front.js" asp-append-version="true"></script>
     @this.RenderSection("Scripts", required: false)
 </body>
 </html>

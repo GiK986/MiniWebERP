@@ -37,7 +37,7 @@
             }
             else
             {
-                return this.Page();
+                return this.RedirectToPage("./Login");
             }
         }
     }
