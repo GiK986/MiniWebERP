@@ -9,6 +9,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using MiniWebERP.Data.Common.Models;
+    using MiniWebERP.Data.EntitiesConfigurations;
     using MiniWebERP.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
@@ -26,6 +27,10 @@
         public DbSet<Setting> Settings { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<JobTitle> JobTitles { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -51,7 +56,10 @@
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 
-            ConfigureUserIdentityRelations(builder);
+            // Entities Configuration
+            builder.ApplyConfiguration(new UserIdentityConficuration());
+            builder.ApplyConfiguration(new JobTitleConfiguration());
+            builder.ApplyConfiguration(new EmployeeConfiguration());
 
             EntityIndexesConfiguration.Configure(builder);
 
@@ -73,30 +81,6 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
-        }
-
-        private static void ConfigureUserIdentityRelations(ModelBuilder builder)
-        {
-            builder.Entity<ApplicationUser>()
-                .HasMany(e => e.Claims)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<ApplicationUser>()
-                .HasMany(e => e.Logins)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<ApplicationUser>()
-                .HasMany(e => e.Roles)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Restrict);
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

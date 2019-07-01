@@ -4,9 +4,8 @@ namespace MiniWebERP.Data.Models
     using System;
     using System.Collections.Generic;
 
-    using MiniWebERP.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using MiniWebERP.Data.Common.Models;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
