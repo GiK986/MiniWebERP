@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     using MiniWebERP.Data.Common.Models;
 
     public class Employee : BaseDeletableModel<string>
