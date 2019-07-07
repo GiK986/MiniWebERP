@@ -15,6 +15,10 @@
             builder.HasMany(emp => emp.Orders)
                 .WithOne(o => o.Employee)
                 .HasForeignKey(o => o.EmployeeId);
+
+            builder.HasOne(e => e.ApplicationUser)
+                .WithOne(u => u.Employee)
+                .HasForeignKey<Employee>(e => e.AplicationUserId);
         }
     }
 }

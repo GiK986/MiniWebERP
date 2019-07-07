@@ -25,6 +25,10 @@
 
         public string ManagerID { get; set; }
 
+        public string AplicationUserId { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
+
         public Employee Manager { get; set; }
 
         public JobTitle JobTitle { get; set; }
