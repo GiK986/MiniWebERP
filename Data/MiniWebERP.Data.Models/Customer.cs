@@ -37,8 +37,9 @@
 
         public string ContactPersonID { get; set; }
 
-        // public ContactPerson ContactPerson { get; set; }
         [StringLength(20)]
         public string PhoneNumber { get; set; }
+
+        public ContactPerson ContactPerson { get; set; }
     }
 }

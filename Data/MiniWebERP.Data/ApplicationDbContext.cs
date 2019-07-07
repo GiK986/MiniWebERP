@@ -32,6 +32,8 @@
 
         public DbSet<JobTitle> JobTitles { get; set; }
 
+        public DbSet<ContactPerson> ContactsPersons { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -60,6 +62,7 @@
             builder.ApplyConfiguration(new UserIdentityConficuration());
             builder.ApplyConfiguration(new JobTitleConfiguration());
             builder.ApplyConfiguration(new EmployeeConfiguration());
+            builder.ApplyConfiguration(new ContactPersonConficuration());
 
             EntityIndexesConfiguration.Configure(builder);
 

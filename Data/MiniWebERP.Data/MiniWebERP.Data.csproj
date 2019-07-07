@@ -13,6 +13,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190628045917_AddCustomerEntity.cs" />
     <Compile Remove="Migrations\20190628045917_AddCustomerEntity.Designer.cs" />
+    <Compile Remove="Migrations\20190706211759_AddContactPersonEntity.cs" />
+    <Compile Remove="Migrations\20190706211759_AddContactPersonEntity.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
