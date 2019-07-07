@@ -38,6 +38,8 @@
 
         public DbSet<ItemType> ItemTypes { get; set; }
 
+        public DbSet<Item> Items { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -68,6 +70,8 @@
             builder.ApplyConfiguration(new EmployeeConfiguration());
             builder.ApplyConfiguration(new ContactPersonConficuration());
             builder.ApplyConfiguration(new CustomerConficuration());
+            builder.ApplyConfiguration(new ItemConficuration());
+            builder.ApplyConfiguration(new ItemTypeConficuration());
 
             EntityIndexesConfiguration.Configure(builder);
 
