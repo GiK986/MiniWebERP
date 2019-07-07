@@ -7,6 +7,11 @@
 
     public class Item : BaseDeletableModel<string>
     {
+        public Item()
+        {
+            this.OrderLines = new HashSet<OrderLine>();
+        }
+
         [Required]
         public int ItemTypeId { get; set; }
 
@@ -20,8 +25,8 @@
 
         public decimal UnitPrice { get; set; }
 
-        public ItemType ItemType { get; set; }
+        public virtual ItemType ItemType { get; set; }
 
-        public ICollection<OrderLine> OrderLines { get; set; }
+        public virtual ICollection<OrderLine> OrderLines { get; set; }
     }
 }

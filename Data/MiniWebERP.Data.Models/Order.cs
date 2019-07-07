@@ -8,6 +8,11 @@
 
     public class Order : BaseDeletableModel<string>
     {
+        public Order()
+        {
+            this.OrderLines = new HashSet<OrderLine>();
+        }
+
         [Required]
         public string CustomerID { get; set; }
 
@@ -34,10 +39,10 @@
         [StringLength(256)]
         public string InternalComments { get; set; }
 
-        public Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
-        public ICollection<OrderLine> OrderLines { get; set; }
+        public virtual ICollection<OrderLine> OrderLines { get; set; }
     }
 }

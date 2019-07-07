@@ -46,8 +46,8 @@
         [StringLength(20)]
         public string PhoneNumber { get; set; }
 
-        public ContactPerson ContactPerson { get; set; }
+        public virtual ContactPerson ContactPerson { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

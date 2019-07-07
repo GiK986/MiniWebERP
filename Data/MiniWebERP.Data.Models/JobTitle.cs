@@ -11,6 +11,6 @@
             this.Employees = new HashSet<Employee>();
         }
 
-        public ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

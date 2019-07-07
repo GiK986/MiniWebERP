@@ -29,12 +29,12 @@
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        public Employee Manager { get; set; }
+        public virtual Employee Manager { get; set; }
 
-        public JobTitle JobTitle { get; set; }
+        public virtual JobTitle JobTitle { get; set; }
 
-        public ICollection<Employee> Subordinates { get; set; }
+        public virtual ICollection<Employee> Subordinates { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
