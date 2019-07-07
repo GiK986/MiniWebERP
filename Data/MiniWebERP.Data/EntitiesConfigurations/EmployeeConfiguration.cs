@@ -11,6 +11,10 @@
             builder.HasMany(manager => manager.Subordinates)
                 .WithOne(emp => emp.Manager)
                 .HasForeignKey(emp => emp.ManagerID);
+
+            builder.HasMany(emp => emp.Orders)
+                .WithOne(o => o.Employee)
+                .HasForeignKey(o => o.EmployeeId);
         }
     }
 }

@@ -34,7 +34,7 @@
                 table: "Customers",
                 maxLength: 60,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: string.Empty);
 
             migrationBuilder.AddColumn<string>(
                 name: "AddressLine2",
@@ -52,14 +52,14 @@
                 table: "Customers",
                 maxLength: 60,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: string.Empty);
 
             migrationBuilder.AddColumn<string>(
                 name: "DeliveryCity",
                 table: "Customers",
                 maxLength: 60,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: string.Empty);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

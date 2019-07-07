@@ -1,11 +1,17 @@
 ﻿namespace MiniWebERP.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using MiniWebERP.Data.Common.Models;
 
     public class Customer : BaseDeletableModel<string>
     {
+        public Customer()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+
         [Required]
         [StringLength(255)]
         public string CompanyName { get; set; }
@@ -41,5 +47,7 @@
         public string PhoneNumber { get; set; }
 
         public ContactPerson ContactPerson { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

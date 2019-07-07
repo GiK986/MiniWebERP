@@ -10,6 +10,7 @@
         public Employee()
         {
             this.Subordinates = new HashSet<Employee>();
+            this.Orders = new HashSet<Order>();
         }
 
         [Required]
@@ -29,5 +30,7 @@
         public JobTitle JobTitle { get; set; }
 
         public ICollection<Employee> Subordinates { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }
