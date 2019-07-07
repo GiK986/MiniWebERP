@@ -1,6 +1,7 @@
 ﻿namespace MiniWebERP.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using MiniWebERP.Data.Common.Models;
@@ -36,5 +37,7 @@
         public Customer Customer { get; set; }
 
         public Employee Employee { get; set; }
+
+        public ICollection<OrderLine> OrderLines { get; set; }
     }
 }

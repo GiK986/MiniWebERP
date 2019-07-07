@@ -1,5 +1,6 @@
 ﻿namespace MiniWebERP.Data.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using MiniWebERP.Data.Common.Models;
@@ -20,5 +21,7 @@
         public decimal UnitPrice { get; set; }
 
         public ItemType ItemType { get; set; }
+
+        public ICollection<OrderLine> OrderLines { get; set; }
     }
 }

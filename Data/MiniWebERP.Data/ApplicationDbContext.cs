@@ -36,6 +36,8 @@
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderLine> OrderLines { get; set; }
+
         public DbSet<ItemType> ItemTypes { get; set; }
 
         public DbSet<Item> Items { get; set; }
@@ -72,6 +74,8 @@
             builder.ApplyConfiguration(new CustomerConficuration());
             builder.ApplyConfiguration(new ItemConficuration());
             builder.ApplyConfiguration(new ItemTypeConficuration());
+            builder.ApplyConfiguration(new OrderConficuration());
+            builder.ApplyConfiguration(new OrderLineConficuration());
 
             EntityIndexesConfiguration.Configure(builder);
 

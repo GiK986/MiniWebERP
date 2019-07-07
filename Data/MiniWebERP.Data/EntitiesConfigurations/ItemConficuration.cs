@@ -12,5 +12,4 @@
                  .HasColumnType("decimal(15,2)");
         }
     }
-
 }
