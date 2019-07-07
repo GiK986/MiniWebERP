@@ -4,7 +4,7 @@
 
     using MiniWebERP.Data.Common.Models;
 
-    public class JobTitle : BaseCatalogModel<string>
+    public class JobTitle : BaseCatalogModel<int>
     {
         public JobTitle()
         {

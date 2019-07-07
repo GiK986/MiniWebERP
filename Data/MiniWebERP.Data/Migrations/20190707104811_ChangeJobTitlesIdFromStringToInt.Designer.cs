@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniWebERP.Data;
 
 namespace MiniWebERP.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190707104811_ChangeJobTitlesIdFromStringToInt")]
+    partial class ChangeJobTitlesIdFromStringToInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -329,21 +331,6 @@ namespace MiniWebERP.Data.Migrations
                     b.HasIndex("ManagerID");
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("MiniWebERP.Data.Models.ItemType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(60);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ItemTypes");
                 });
 
             modelBuilder.Entity("MiniWebERP.Data.Models.JobTitle", b =>

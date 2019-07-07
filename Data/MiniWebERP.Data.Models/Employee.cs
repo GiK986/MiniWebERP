@@ -21,7 +21,7 @@
         [StringLength(40)]
         public string LastName { get; set; }
 
-        public string JobTitleId { get; set; }
+        public int JobTitleId { get; set; }
 
         public string ManagerID { get; set; }
 

@@ -17,6 +17,8 @@
     <Compile Remove="Migrations\20190706211759_AddContactPersonEntity.Designer.cs" />
     <Compile Remove="Migrations\20190707074354_AddOrderEntity.cs" />
     <Compile Remove="Migrations\20190707074354_AddOrderEntity.Designer.cs" />
+    <Compile Remove="Migrations\20190707104516_AddItemTypeEntity.cs" />
+    <Compile Remove="Migrations\20190707104516_AddItemTypeEntity.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
