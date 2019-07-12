@@ -22,6 +22,10 @@
 
         public virtual IQueryable<TEntity> All() => this.DbSet;
 
+        public virtual TEntity Find(string id) => this.DbSet.Find(id);
+
+        public virtual async Task<TEntity> FindAsync(string id) => await this.DbSet.FindAsync(id);
+
         public virtual IQueryable<TEntity> AllAsNoTracking() => this.DbSet.AsNoTracking();
 
         public virtual Task AddAsync(TEntity entity) => this.DbSet.AddAsync(entity);

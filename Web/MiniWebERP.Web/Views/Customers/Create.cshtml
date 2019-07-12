@@ -1,0 +1,119 @@
+﻿@model MiniWebERP.Web.ViewModels.Customers.CustomerInputModel
+
+@{
+    ViewData["Title"] = "Create Customer";
+}
+
+<section class="tables">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header d-flex align-items-center">
+                       <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <h4>Company Information</h4>
+                            <hr />
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="CompanyName" class="control-label"></label>
+                                    <input asp-for="CompanyName" class="form-control" value="@Model.CompanyName" />
+                                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="EIK" class="control-label"></label>
+                                    <input asp-for="EIK" class="form-control" value="@Model.EIK" />
+                                    <span asp-validation-for="EIK" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="CompanyPhoneNumber" class="control-label"></label>
+                                    <input asp-for="CompanyPhoneNumber" class="form-control" value="@Model.CompanyPhoneNumber" />
+                                    <span asp-validation-for="CompanyPhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label asp-for="City" class="control-label"></label>
+                                    <input asp-for="City" class="form-control" value="@Model.City" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label asp-for="AddressLine1" class="control-label"></label>
+                                    <input asp-for="AddressLine1" class="form-control" value="@Model.AddressLine1" />
+                                    <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="AddressLine2" class="control-label"></label>
+                                    <input asp-for="AddressLine2" class="form-control" value="@Model.AddressLine2" />
+                                    <span asp-validation-for="AddressLine2" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="IsTheSameDeliveryAddress" />
+                                    @Html.DisplayNameFor(model => model.IsTheSameDeliveryAddress)
+                                </label>
+                            </div>
+                            <div id="deliveryAddress" class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label asp-for="DeliveryCity" class="control-label"></label>
+                                    <input asp-for="DeliveryCity" class="form-control" value="@Model.DeliveryCity" />
+                                    <span asp-validation-for="DeliveryCity" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label asp-for="DeliveryAddressLine1" class="control-label"></label>
+                                    <input asp-for="DeliveryAddressLine1" class="form-control" value="@Model.DeliveryAddressLine1" />
+                                    <span asp-validation-for="DeliveryAddressLine1" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="DeliveryAddressLine2" class="control-label"></label>
+                                    <input asp-for="DeliveryAddressLine2" class="form-control" value="@Model.DeliveryAddressLine2" />
+                                    <span asp-validation-for="DeliveryAddressLine2" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <h4>Contact Person</h4>
+                            <hr />
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="FirstName" class="control-label"></label>
+                                    <input asp-for="FirstName" class="form-control" value="@Model.FirstName" />
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="LastName" class="control-label"></label>
+                                    <input asp-for="LastName" class="form-control" value="@Model.LastName" />
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <label asp-for="PreferredName" class="control-label"></label>
+                                    <input asp-for="PreferredName" class="form-control" value="@Model.PreferredName" />
+                                    <span asp-validation-for="PreferredName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label asp-for="PhoneNumber" class="control-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" value="@Model.PhoneNumber" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="EmailAddress" class="control-label"></label>
+                                    <input asp-for="EmailAddress" class="form-control" value="@Model.EmailAddress" />
+                                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -10,11 +10,14 @@
             <p>Web Designer</p>
         </div>
     </div>
-    <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+    <!-- Sidebar Navigation Menus-->
+    <span class="heading">Main</span>
     <ul class="list-unstyled">
-        <li class="active"><a asp-controller="Dashboard" asp-action="Index"> <i class="icon-home"></i>Home </a></li>
+        <li><a asp-controller="Dashboard" asp-action="Index"> <i class="icon-home"></i>Home </a></li>
+        <li><a asp-controller="Customers" asp-action="Index"> <i class="icon-home"></i>Customers </a></li>
+        <li><a asp-controller="Employees" asp-action="Index"> <i class="icon-home"></i>Employees </a></li>
         <li>
-            <a href="#tablesDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>Tables </a>
+            <a href="#tablesDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>Settings </a>
             <ul id="tablesDropdown" class="collapse list-unstyled ">
                 <li><a href="tables.html">Bootstrap tables</a></li>
                 <li><a href="tables-datatable.html">Datatable</a></li>
@@ -61,7 +64,8 @@
                 <li><a href="pages-pricing.html">Pricing table</a></li>
             </ul>
         </li>
-    </ul><span class="heading">Extras</span>
+    </ul>
+    <span class="heading">Extras</span>
     <ul class="list-unstyled">
         <li> <a href="#"> <i class="icon-flask"></i>Demo </a></li>
         <li> <a href="#"> <i class="icon-screen"></i>Demo </a></li>

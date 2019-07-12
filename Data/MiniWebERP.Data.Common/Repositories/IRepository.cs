@@ -11,6 +11,10 @@
 
         IQueryable<TEntity> AllAsNoTracking();
 
+        TEntity Find(string id);
+
+        Task<TEntity> FindAsync(string id);
+
         Task AddAsync(TEntity entity);
 
         void Update(TEntity entity);

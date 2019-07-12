@@ -2,3 +2,20 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+$(document).ready(function () {
+    $('#deliveryAddress').hide();
+    showHideDeliveryAddress();
+});
+
+function showHideDeliveryAddress() {
+    $('#IsTheSameDeliveryAddress').on("change", function () {
+        if ($('#IsTheSameDeliveryAddress').is(':checked')) {
+
+
+            $('#deliveryAddress').hide();
+        }
+        else {
+            $('#deliveryAddress').show();
+        }
+    });
+}
