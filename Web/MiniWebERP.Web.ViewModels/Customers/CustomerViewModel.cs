@@ -6,9 +6,10 @@
 
     using AutoMapper;
     using MiniWebERP.Data.Models;
+    using MiniWebERP.Services.Data.Models.Customers;
     using MiniWebERP.Services.Mapping;
 
-    public class CustomerViewModel : IMapFrom<Customer>, IHaveCustomMappings
+    public class CustomerViewModel : IMapFrom<CustomerListServiceModel>
     {
         public string Id { get; set; }
 
@@ -25,12 +26,5 @@
         public string ContactPerson { get; set; }
 
         public string PhoneNumber { get; set; }
-
-        public void CreateMappings(IProfileExpression configuration)
-        {
-            configuration.CreateMap<Customer, CustomerViewModel>().ForMember(
-                m => m.ContactPerson,
-                opt => opt.MapFrom(x => x.ContactPerson.FirstName + " " + x.ContactPerson.LastName));
-        }
     }
 }

@@ -1,0 +1,96 @@
+﻿@model MiniWebERP.Web.ViewModels.Customers.CustomerDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <section class="tables">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                            <div>
+                                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">Edit</a>
+                                
+                                <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                                <h4>Company Information</h4>
+                                <hr />
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="CompanyName" class="control-label"></label>
+                                        <div asp-content-for="CompanyName" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label asp-for="EIK" class="control-label"></label>
+                                        <div asp-content-for="EIK" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="PhoneNumber" class="control-label"></label>
+                                        <div asp-content-for="PhoneNumber" class="form-control"></div>
+                                    </div>
+                                </div>
+                               <div class="form-row">
+                                   <div class="form-group col-md-3">
+                                       <label asp-for="City" class="control-label"></label>
+                                       <div asp-content-for="City" class="form-control"></div>
+                                   </div>
+                                   <div class="form-group col-md-5">
+                                       <label asp-for="AddressLine1" class="control-label"></label>
+                                       <div asp-content-for="AddressLine1" class="form-control"></div>
+                                   </div>
+                                   <div class="form-group col-md-4">
+                                       <label asp-for="AddressLine2" class="control-label"></label>
+                                       <div asp-content-for="AddressLine2" class="form-control"></div>
+                                   </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label asp-for="DeliveryCity" class="control-label"></label>
+                                        <div asp-content-for="DeliveryCity" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label asp-for="DeliveryAddressLine1" class="control-label"></label>
+                                        <div asp-content-for="DeliveryAddressLine1" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="DeliveryAddressLine2" class="control-label"></label>
+                                        <div asp-content-for="DeliveryAddressLine2" class="form-control"></div>
+                                    </div>
+                                </div>
+                                <h4>Contact Person</h4>
+                                <hr />
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="ContactPersonFirstName" class="control-label"></label>
+                                        <div asp-content-for="ContactPersonFirstName" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="ContactPersonLastName" class="control-label"></label>
+                                        <div asp-content-for="ContactPersonLastName" class="form-control"></div>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label asp-for="ContactPersonPreferredName" class="control-label"></label>
+                                        <div asp-content-for="ContactPersonPreferredName" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label asp-for="ContactPersonPhoneNumber" class="control-label"></label>
+                                        <div asp-content-for="ContactPersonPhoneNumber" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="ContactPersonEmailAddress" class="control-label"></label>
+                                        <div asp-content-for="ContactPersonEmailAddress" class="form-control"></div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

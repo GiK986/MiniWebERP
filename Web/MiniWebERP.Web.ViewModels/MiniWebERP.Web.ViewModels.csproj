@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\MiniWebERP.Data.Models\MiniWebERP.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Services\MiniWebERP.Services.Data.Models\MiniWebERP.Services.Data.Models.csproj" />
     <ProjectReference Include="..\..\Services\MiniWebERP.Services.Mapping\MiniWebERP.Services.Mapping.csproj" />
   </ItemGroup>
 

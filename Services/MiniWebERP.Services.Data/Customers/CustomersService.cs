@@ -1,5 +1,6 @@
-﻿namespace MiniWebERP.Services.Data
+﻿namespace MiniWebERP.Services.Data.Customers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@
 
     using MiniWebERP.Data.Common.Repositories;
     using MiniWebERP.Data.Models;
+    using MiniWebERP.Services.Data.Models.Customers;
+    using MiniWebERP.Services.Mapping;
     using MiniWebERP.Web.ViewModels.Customers;
 
     public class CustomersService : ICustomersService
@@ -57,9 +60,26 @@
             await this.customerRepository.SaveChangesAsync();
         }
 
+        public async Task DeleteCustomer(string id)
+        {
+            var entity = this.customerRepository.Find(id);
+            this.customerRepository.Delete(entity);
+            await this.customerRepository.SaveChangesAsync();
+        }
+
         public IQueryable<Customer> GetAll()
         {
             var result = this.customerRepository.All();
+            return result;
+        }
+
+        public async Task<ICollection<CustomerListServiceModel>> GetAllCustomersOrderByCompaniName()
+        {
+            var result = await this.customerRepository.All()
+                .To<CustomerListServiceModel>()
+                .OrderBy(c => c.CompanyName)
+                .ToListAsync();
+
             return result;
         }
 
@@ -67,6 +87,16 @@
         {
             var result = this.customerRepository.All().Include(c => c.ContactPerson).Where(c => c.Id == id);
             return result;
+        }
+
+        public async Task<CustomerDetailsServiceModel> GetCustomerDetails(string id)
+        {
+            var customer = await this.customerRepository
+                .AllAsNoTracking()
+                .Where(x => x.Id == id).To<CustomerDetailsServiceModel>()
+                .FirstOrDefaultAsync();
+
+            return customer;
         }
     }
 }

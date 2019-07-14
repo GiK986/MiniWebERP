@@ -37,9 +37,10 @@
                                                 <td>@customer.AddressLine2</td>
                                                 <td>@customer.ContactPerson</td>
                                                 <td>
-                                                    @Html.ActionLink("Edit", "Edit", new { id = customer.Id }) |
-                                                    @Html.ActionLink("Details", "Details", new { id = customer.Id }) |
-                                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                                    <a asp-action="Edit" asp-route-id="@customer.Id">Edit</a> |
+                                                    <a asp-action="Details" asp-route-id="@customer.Id">Details</a> |
+                                                    <a asp-action="Delete" asp-route-id="@customer.Id" class="text-danger">Delete</a>
+
                                                 </td>
                                             </tr>
                                         }
