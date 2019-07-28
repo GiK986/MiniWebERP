@@ -25,7 +25,7 @@
 
         public string ManagerID { get; set; }
 
-        public string AplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 

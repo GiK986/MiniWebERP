@@ -7,21 +7,21 @@
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "AplicationUserId",
+                name: "ApplicationUserId",
                 table: "Employees",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_AplicationUserId",
                 table: "Employees",
-                column: "AplicationUserId",
+                column: "ApplicationUserId",
                 unique: true,
-                filter: "[AplicationUserId] IS NOT NULL");
+                filter: "[ApplicationUserId] IS NOT NULL");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Employees_AspNetUsers_AplicationUserId",
                 table: "Employees",
-                column: "AplicationUserId",
+                column: "ApplicationUserId",
                 principalTable: "AspNetUsers",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
@@ -38,7 +38,7 @@
                 table: "Employees");
 
             migrationBuilder.DropColumn(
-                name: "AplicationUserId",
+                name: "ApplicationUserId",
                 table: "Employees");
         }
     }

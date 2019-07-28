@@ -1,6 +1,5 @@
 ﻿namespace MiniWebERP.Web.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -17,14 +16,14 @@
     public class EmployeesController : Controller
     {
         private readonly IEmployeesService employeesService;
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext context;
 
         public EmployeesController(
             IEmployeesService employeesService,
             ApplicationDbContext context)
         {
             this.employeesService = employeesService;
-            _context = context;
+            this.context = context;
         }
 
         // GET: Employees
@@ -40,20 +39,20 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            var employee = await _context.Employees
+            var employee = await this.context.Employees
                 .Include(e => e.ApplicationUser)
                 .Include(e => e.JobTitle)
                 .Include(e => e.Manager)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            return View(employee);
+            return this.View(employee);
         }
 
         // GET: Employees/Create
@@ -61,7 +60,7 @@
         {
             var model = new EmployeeInputViewModel
             {
-                JobTitles = new SelectList(_context.JobTitles, "Id", "Name"),
+                JobTitles = new SelectList(this.context.JobTitles, "Id", "Name"),
                 Managers = new SelectList(await this.employeesService.GetManagersSelectList(), "Value", "Text"),
             };
 
@@ -69,7 +68,7 @@
         }
 
         // POST: Employees/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overPosting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -77,12 +76,12 @@
         {
             if (this.ModelState.IsValid)
             {
-                _context.Add(input);
-                await _context.SaveChangesAsync();
+                this.context.Add(input);
+                await this.context.SaveChangesAsync();
                 return this.RedirectToAction(nameof(this.Index));
             }
 
-            input.JobTitles = new SelectList(_context.JobTitles, "Id", "Name", input.JobTitleId);
+            input.JobTitles = new SelectList(this.context.JobTitles, "Id", "Name", input.JobTitleId);
             input.Managers = new SelectList(await this.employeesService.GetManagersSelectList(), "Value", "Text", input.ManagerId);
             return this.View(input);
         }
@@ -92,56 +91,60 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            var employee = await _context.Employees.FindAsync(id);
+            var employee = await this.context.Employees.FindAsync(id);
             if (employee == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
-            ViewData["AplicationUserId"] = new SelectList(_context.Users, "Id", "Id", employee.AplicationUserId);
-            ViewData["JobTitleId"] = new SelectList(_context.JobTitles, "Id", "Name", employee.JobTitleId);
-            ViewData["ManagerID"] = new SelectList(_context.Employees, "Id", "Id", employee.ManagerID);
-            return View(employee);
+
+            this.ViewData["ApplicationUserId"] = new SelectList(this.context.Users, "Id", "Id", employee.ApplicationUserId);
+            this.ViewData["JobTitleId"] = new SelectList(this.context.JobTitles, "Id", "Name", employee.JobTitleId);
+            this.ViewData["ManagerID"] = new SelectList(this.context.Employees, "Id", "Id", employee.ManagerID);
+
+            return this.View(employee);
         }
 
         // POST: Employees/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overPosting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("FirstName,LastName,JobTitleId,ManagerID,AplicationUserId,IsDeleted,DeletedOn,Id,CreatedOn,ModifiedOn")] Employee employee)
+        public async Task<IActionResult> Edit(string id, [Bind("FirstName,LastName,JobTitleId,ManagerID,ApplicationUserId,IsDeleted,DeletedOn,Id,CreatedOn,ModifiedOn")] Employee employee)
         {
             if (id != employee.Id)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(employee);
-                    await _context.SaveChangesAsync();
+                    this.context.Update(employee);
+                    await this.context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.Id))
+                    if (!this.EmployeeExists(employee.Id))
                     {
-                        return NotFound();
+                        return this.NotFound();
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                return this.RedirectToAction(nameof(this.Index));
             }
-            ViewData["AplicationUserId"] = new SelectList(_context.Users, "Id", "Id", employee.AplicationUserId);
-            ViewData["JobTitleId"] = new SelectList(_context.JobTitles, "Id", "Name", employee.JobTitleId);
-            ViewData["ManagerID"] = new SelectList(_context.Employees, "Id", "Id", employee.ManagerID);
-            return View(employee);
+
+            this.ViewData["ApplicationUserId"] = new SelectList(this.context.Users, "Id", "Id", employee.ApplicationUserId);
+            this.ViewData["JobTitleId"] = new SelectList(this.context.JobTitles, "Id", "Name", employee.JobTitleId);
+            this.ViewData["ManagerID"] = new SelectList(this.context.Employees, "Id", "Id", employee.ManagerID);
+            return this.View(employee);
         }
 
         // GET: Employees/Delete/5
@@ -149,36 +152,37 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            var employee = await _context.Employees
+            var employee = await this.context.Employees
                 .Include(e => e.ApplicationUser)
                 .Include(e => e.JobTitle)
                 .Include(e => e.Manager)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            return View(employee);
+            return this.View(employee);
         }
 
         // POST: Employees/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var employee = await _context.Employees.FindAsync(id);
-            _context.Employees.Remove(employee);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var employee = await this.context.Employees.FindAsync(id);
+            this.context.Employees.Remove(employee);
+            await this.context.SaveChangesAsync();
+            return this.RedirectToAction(nameof(this.Index));
         }
 
         private bool EmployeeExists(string id)
         {
-            return _context.Employees.Any(e => e.Id == id);
+            return this.context.Employees.Any(e => e.Id == id);
         }
     }
 }

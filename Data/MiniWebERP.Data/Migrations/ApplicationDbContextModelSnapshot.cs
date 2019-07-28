@@ -300,7 +300,7 @@ namespace MiniWebERP.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AplicationUserId");
+                    b.Property<string>("ApplicationUserId");
 
                     b.Property<DateTime>("CreatedOn");
 
@@ -324,9 +324,9 @@ namespace MiniWebERP.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AplicationUserId")
+                    b.HasIndex("ApplicationUserId")
                         .IsUnique()
-                        .HasFilter("[AplicationUserId] IS NOT NULL");
+                        .HasFilter("[ApplicationUserId] IS NOT NULL");
 
                     b.HasIndex("IsDeleted");
 
@@ -566,7 +566,7 @@ namespace MiniWebERP.Data.Migrations
                 {
                     b.HasOne("MiniWebERP.Data.Models.ApplicationUser", "ApplicationUser")
                         .WithOne("Employee")
-                        .HasForeignKey("MiniWebERP.Data.Models.Employee", "AplicationUserId");
+                        .HasForeignKey("MiniWebERP.Data.Models.Employee", "ApplicationUserId");
 
                     b.HasOne("MiniWebERP.Data.Models.JobTitle", "JobTitle")
                         .WithMany("Employees")

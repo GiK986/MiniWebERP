@@ -18,7 +18,7 @@
 
             builder.HasOne(e => e.ApplicationUser)
                 .WithOne(u => u.Employee)
-                .HasForeignKey<Employee>(e => e.AplicationUserId);
+                .HasForeignKey<Employee>(e => e.ApplicationUserId);
         }
     }
 }
